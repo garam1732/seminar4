@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-@^%cy=e9r^mb8s=2&#h&-_eeb^oo@isq20tn6drp-jg_=t0hv*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1']
 
@@ -38,6 +38,21 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+        'level': 'DEBUG',
+        'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'level': 'INFO',
+        'handlers': ['console']
+    },
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
